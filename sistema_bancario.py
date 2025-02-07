@@ -30,94 +30,87 @@ exemplo:
 import os
 import time
 
+# Menu de opções
 Menu = '''
 [D] Depositar
 [S] Sacar
 [E] Extrato
 [L] Sair
-
 '''
 
-Saldo = 0
-Limite = 500
-Extrato = ''
-Numero_saques = 0
-LIMITE_SAQUES = 3
+# Inicialização de variáveis
+Saldo = 0  # Saldo inicial da conta
+Limite = 500  # Limite máximo para saques
+Extrato = ''  # Armazena o histórico de transações
+Numero_saques = 0  # Contador de saques realizados
+LIMITE_SAQUES = 3  # Limite de saques permitidos
 
 while True:
-    os.system('cls')
+    os.system('cls')  # Limpa a tela (Windows)
     print('Bem Vindo ao Sistema Bancário')
     
-
-    print (Menu)
+    # Exibe o menu de opções
+    print(Menu)
     opcao = input('Informe a opção: ')
     
-    
+    # Opção de depósito
     if opcao == 'D':
-        valor = float(input('Digite o valor do deposito: '))
-        if valor > 0:
-            Saldo += valor
-            Extrato += f'Deposito: R${valor:.2f}\n'
+        valor = float(input('Digite o valor do deposito: '))  # Solicita o valor para depósito
+        if valor > 0:  # Verifica se o valor é válido
+            Saldo += valor  # Atualiza o saldo com o valor depositado
+            Extrato += f'Deposito: R${valor:.2f}\n'  # Adiciona o depósito ao extrato
             
             print(f'Valor depositado {valor}')
         else:
             print('Falha na operação, o valor informado é invalido')
-            time.sleep(4)
+            time.sleep(4)  # Aguarda 4 segundos para o usuário ler a mensagem
 
+    # Opção de saque
     elif opcao == 'S':
-        valor_s = float(input('informe o valor do saque: '))
+        valor_s = float(input('informe o valor do saque: '))  # Solicita o valor para saque
 
-        maior_saldo = valor_s > Saldo
-        maior_limite = valor_s > Limite
-        maior_saque = Numero_saques >= LIMITE_SAQUES
-        
+        # Verificação de condições para o saque
+        maior_saldo = valor_s > Saldo  # Verifica se o valor do saque é maior que o saldo
+        maior_limite = valor_s > Limite  # Verifica se o valor do saque excede o limite
+        maior_saque = Numero_saques >= LIMITE_SAQUES  # Verifica se o número de saques excedeu o limite
+
+        # Mensagens de erro conforme a verificação das condições
         if maior_saldo:
             print('Operação invalida, saldo insuficiente')
-            time.sleep(45)
+            time.sleep(4)  # Aguarda 4 segundos para o usuário ler a mensagem
         elif maior_limite:
-            print('Operação invalida, você exedeu o limite')
+            print('Operação invalida, você excedeu o limite')
             time.sleep(4)
         elif maior_saque:
-            print('Operação invalida, você exedeu o numero de saque')
+            print('Operação invalida, você excedeu o número de saques')
             time.sleep(4)
-            
-        
-        elif valor_s > 0:
-            Saldo -= valor_s
-            Extrato += f'Deposito: R${valor_s:.2f}\n'
-            Numero_saques += 1
+        elif valor_s > 0:  # Verifica se o valor do saque é válido
+            Saldo -= valor_s  # Atualiza o saldo com o valor do saque
+            Extrato += f'Saque: R${valor_s:.2f}\n'  # Adiciona o saque ao extrato
+            Numero_saques += 1  # Incrementa o contador de saques
 
             print(f'Valor sacado {valor_s}')
             time.sleep(4)
-        
 
         else:
-            print('Operação falhou, valor invalido')
-            time.sleep(10)
+            print('Operação falhou, valor invalido')  # Caso o valor do saque seja inválido
+            time.sleep(4)
 
+    # Opção de extrato
     elif opcao == 'E':
         print("============EXTRATO============")
-        print("Não foram realizadas transações" if not Extrato else Extrato)
-        print(f'Numero de Saques: {Numero_saques}')
-        print(f"Valor do saque: {valor_s*Numero_saques}")
-        print(f'Seu saldo é: R$ {Saldo:.2f}')
+        print("Não foram realizadas transações" if not Extrato else Extrato)  # Exibe o extrato ou mensagem caso não haja transações
+        print(f'Número de Saques: {Numero_saques}')  # Exibe o número de saques realizados
+        print(f"Valor do saque: R${valor_s*Numero_saques:.2f}")  # Exibe o total sacado
+        print(f'Seu saldo é: R$ {Saldo:.2f}')  # Exibe o saldo atual
         time.sleep(10)
-    
+
+    # Opção de sair
     elif opcao == 'L':
-        print('Você saiu da operação')
-        break
+        print('Você saiu da operação')  # Mensagem de saída
+        break  # Encerra o loop e sai do programa
+
+    # Opção inválida
     else:
-        print('Operação invalida, selecione novamente a opção para a operação')
-        time.sleep(10)
-              
-        
-
-        
-
-            
-
-   
-            
-
-    
-
+        print('Operação invalida, selecione novamente a opção para a operação')  # Mensagem de erro para operação inválida
+        time.sleep(10)  # Aguarda 10 segundos para o usuário ler a mensagem

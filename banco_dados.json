@@ -1,0 +1,25 @@
+{
+    "clientes": [
+        {
+            "nome": "3",
+            "cpf": "3",
+            "data_nascimento": "3",
+            "endereco": "3",
+            "contas": [
+                {
+                    "numero": 1,
+                    "agencia": "0001",
+                    "saldo": 0
+                }
+            ]
+        }
+    ],
+    "contas": [
+        {
+            "numero": 1,
+            "agencia": "0001",
+            "saldo": 0,
+            "cliente": "3"
+        }
+    ]
+}

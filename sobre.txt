@@ -1,0 +1,52 @@
+#--------------------------------------
+
+# Resumo:
+
+# Este código implementa um sistema bancário simples em Python, 
+# permitindo a criação de clientes (Pessoa Física), contas correntes, 
+# depósitos, saques e visualização de extratos. Ele também inclui 
+# funcionalidades para salvar e carregar dados de clientes e 
+# contas em um arquivo JSON, além de registrar transações em um arquivo de log.
+
+# Função:
+
+# O código serve como uma simulação básica de um sistema bancário, 
+# demonstrando conceitos de programação orientada a objetos (POO), 
+# manipulação de arquivos JSON, tratamento de exceções e uso de decoradores 
+# para registro de logs. Ele pode ser usado como ponto de partida para o desenvolvimento de 
+# um sistema bancário mais completo ou como exemplo para aprendizado de Python e POO.
+
+# Componentes principais:
+
+
+# Classes:
+# Cliente: Classe base para clientes, com atributos como endereço e uma lista de contas.
+# PessoaFisica: Classe que herda de Cliente, representando clientes pessoa física com atributos adicionais como nome, CPF e data de nascimento.
+# Conta: Classe base para contas, com atributos como número, agência, saldo e histórico de transações.
+# ContaCorrente: Classe que herda de Conta, representando contas correntes com limites de saque e número máximo de saques.
+# Historico: Classe para registrar e gerar relatórios de transações.
+# Transacao: Classe abstrata para transações bancárias.
+# Saque: Classe que herda de Transacao, representando saques.
+# Deposito: Classe que herda de Transacao, representando depósitos.
+# Funções:
+# salvar_dados(): Salva os dados de clientes e contas em um arquivo JSON.
+# carregar_dados(): Carrega os dados de clientes e contas de um arquivo JSON.
+# menu(): Exibe o menu de opções do sistema.
+# filtrar_cliente(): Busca um cliente pelo CPF.
+# recuperar_conta_cliente(): recupera a conta do cliente.
+# depositar(): Realiza depósitos em contas.
+# sacar(): Realiza saques de contas.
+# exibir_extrato(): Exibe o extrato de uma conta.
+# criar_cliente(): Cria um novo cliente.
+# criar_conta(): Cria uma nova conta corrente.
+# listar_contas(): lista as contas existentes.
+# log_transacao(): Decorador para registrar logs de transações.
+# main(): Função principal que controla o fluxo do sistema.
+# Funcionalidades:
+
+# Criação de clientes e contas.
+# Depósitos e saques em contas correntes.
+# Visualização de extratos de contas.
+# Armazenamento e recuperação de dados em arquivo JSON.
+# Registro de logs de transações.
+# iteração de contas.
